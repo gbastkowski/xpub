@@ -85,8 +85,8 @@ main () {
 
     if [ -z "${xdisplay}" ]; then
         #Trying to get the active display from XWayland
-        xdisplay="$(ps -A -o tty= -o cmd= | grep Xwayland | \
-            grep -v 'grep' | grep "${xtty}" | awk '{print $3}')"
+        xdisplay="$(ps -A -o user= -o cmd= | grep Xwayland | \
+            grep -v 'grep' | grep "${xuser}" | awk '{print $3}')"
 
         if [ -z "${xdisplay}" ]; then
             echo "No X or XWayland process found from ${xtty}."
